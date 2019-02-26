@@ -55,16 +55,19 @@ export default class pages extends Component {
     }
 
     if (this.state.itemsCliked.length == 2) {
+
       const item1 = this.state.itemsCliked[0];
       const item2 = this.state.itemsCliked[1];
 
       if (item1.name == item2.name) {
         item1.checked = true;
+
         this.setState({
           data: this.state.data.map(it =>
             (it.name === item1.name ? item1 : it)
           )
         });
+
       } else {
 
         setTimeout(() => {
@@ -75,16 +78,16 @@ export default class pages extends Component {
               (it.name === item1.name ? item1 : it)
             )
           });
-        }, 500)
+        }, 200)
       }
 
       this.setState({
         itemsCliked: []
       });
 
-      if(this.isFinish()){
+      if (this.isFinish()) {
         this.setState({
-          finish : true
+          finish: true
         });
       }
 
@@ -144,7 +147,7 @@ const styleMain = StyleSheet.create({
     alignItems: 'center',
   },
   row: {
-    marginTop: 20,
+    marginTop: dimensions.height * 0.1,
     flexDirection: 'row',
   },
   button: {
